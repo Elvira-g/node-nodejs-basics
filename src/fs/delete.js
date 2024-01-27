@@ -1,5 +1,10 @@
+import { unlink } from 'node:fs';
+
 const remove = async () => {
-    // Write your code here 
+    const errNew = new Error('FS operation failed');
+    unlink('./src/fs/files/fileToRemove.txt', function(err){
+        if (err) throw errNew;
+    });
 };
 
 await remove();
